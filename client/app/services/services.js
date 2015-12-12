@@ -1,55 +1,5 @@
 angular.module('shortly.services', [])
 
-// .factory('Links', function ($http, $location, Auth) {
-//   // Your code here
-//   if(Auth.isAuth) {
-
-//     var title = function(link) {
-//       return $http({
-
-//       })
-//     }
-
-
-//     // return {
-//     //   visits:     ,
-//     //   title:      ,
-//     //   original:   ,
-//     //   base_url:'http://localhost:8000',
-//     //   code:
-//     // }
-
-//   } else {
-//     $location.path('/signin');
-//   }
-
-// .factory('Shorten', function ($http, $location, Auth) {
-//   if(Auth.isAuth) {
-
-//     var title = function(link) {
-//       return $http({
-//         method: 'POST',
-//         url: '/api/links/shorten'
-//         data
-//       })
-//     }
-
-
-//     return {
-//       visits:     ,
-//       title:      ,
-//       original:   ,
-//       url:'http://localhost:8000',
-//       code:
-//     }
-
-//   } else {
-//     $location.path('/signin');
-//   }
-
-// })
-
-// })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
   // it is responsible for authenticating our user
@@ -96,4 +46,34 @@ angular.module('shortly.services', [])
     isAuth: isAuth,
     signout: signout
   };
-});
+})
+
+
+.factory('Links', function ($http, $location, $window) {
+  var getLinks = function() {
+    return $http({
+      method: 'GET',
+      url: '/api/links'
+    })
+
+
+  }
+
+  var addLink = function() {
+    return $http({
+      method:'POST',
+      url: '/api/links'
+    })
+    .then(function(link) {
+      return link;
+    })
+  }
+
+    return {
+      getLinks: getLinks,
+      addLink: addLink
+    }
+
+})
+
+

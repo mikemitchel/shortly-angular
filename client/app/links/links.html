@@ -1,16 +1,22 @@
 
   <!-- Your html here -->
-  <div class='navigation'>
-  <ul>
-    <li><a href='#' class='index'>All Links</a></li>
-    <li><a href='#' class='create'>Shorten</a></li>
-  </ul>
-  </div>
+
 
   <div id='container'></div>
 
-</div>
+ <div class='navigation'>
+  <ul>
+    <li><a href='#/links'  class='index' >All Links</a></li>
+    <li><a href='#/shorten' class='create'>Shorten</a></li>
+<!--
+    <li ng-repeat = 'link in links'></li> -->
+  </ul>
+  </div>
 
+<form ng-repeat = 'link in links'>
+<p>{{links}}</p>
+<button type='button' ng-click='getLinks()'></button>
+</form>
 
  <!--  <img src='/redirect_icon.png'/>
   <div class='info'>
