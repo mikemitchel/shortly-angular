@@ -6,16 +6,18 @@ angular.module('shortly.links', [])
 
    }
 
-   $scope.spinner = false;
+
    $scope.getLinks = function() {
-     $scope.spinner = true;
+     console.log('getLinks ran');
      Links.getLinks()
      .then(function(data) {
-       $scope.links.data = data.data;
+       console.log('data',data)
+       $scope.links = data.data;
      })
      .catch(function(err) {
        console.log(err);
      })
    }
+   $scope.getLinks();
 })
 

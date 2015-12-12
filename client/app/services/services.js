@@ -53,8 +53,9 @@ angular.module('shortly.services', [])
   var getLinks = function() {
     return $http({
       method: 'GET',
-      url: '/api/links'
+      url: '/api/links/'
     })
+
 
 
   }
