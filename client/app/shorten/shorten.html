@@ -1,10 +1,11 @@
   <div id='shorten'>
 
 <!-- Your code here -->
-    <form name ="shortenForm" ng-submit=''>
-      <input class='text' type='text' >
+    <form name ="shortenForm" ng-submit ='shortenLink()'>
+      <input class='text' ng-model = 'newLink' type='text' >
       <button>Shorten</button>
   </form>
+  <img ng-show='spinner' src='/assets/spiffygif_46x46.gif'></img>
 
 
 </div>

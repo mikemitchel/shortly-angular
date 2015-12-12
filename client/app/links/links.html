@@ -13,11 +13,9 @@
   </ul>
   </div>
 
-<form ng-repeat = 'link in links'>
-<p>{{links}}</p>
-<button type='button' ng-click='getLinks()'></button>
-</form>
-
+<div ng-repeat = 'link in links'>
+    <p>{{links.title}}</p>
+</div>
  <!--  <img src='/redirect_icon.png'/>
   <div class='info'>
     <div class='visits'><span class='count'>{{visits}}</span>Visits</div>
