@@ -53,7 +53,7 @@ angular.module('shortly.services', [])
   var getLinks = function() {
     return $http({
       method: 'GET',
-      url: '/api/links/'
+      url: '/api/links'
     })
 
 
@@ -61,10 +61,9 @@ angular.module('shortly.services', [])
   }
 
   var addLink = function(uri) {
-    console.log("url", uri);
     return $http({
       method:'POST',
-      url: '/api/links/',
+      url: '/api/links',
       data: {url: uri}
 
     })
