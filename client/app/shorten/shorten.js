@@ -4,16 +4,17 @@ angular.module('shortly.shorten', [])
   // Your code here
   $scope.link = {}
 
-  $scope.shortenLink = function () {
-    console.log('new link in shorten.js',$scope.newLink)
-    Links.addLink($scope.newLink)
+  $scope.shortenLink = function (link) {
+    Links.addLink(link)
     .then(function(data) {
-      console.log('data',data)
-      $scope.link = data;
+      console.log('data',data.data)
+      $scope.link = data.data;
     })
     .catch(function(err) {
       console.log(err)
     })
+
+
   }
   //   return $http({
   //     method: 'POST',
