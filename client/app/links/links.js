@@ -1,6 +1,6 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, Links) {
+.controller('LinksController', function ($scope, $location, Links, Auth) {
   // Your code here
    $scope.data = {
 
@@ -18,5 +18,19 @@ angular.module('shortly.links', [])
    }
 
    $scope.getLinks();
+
+   $scope.signout = function() {
+     Auth.signout();
+   }
+
+   $scope.isAuth = function() {
+     if(!Auth.isAuth()) {
+      $location.path('/signin');
+   }
+ }
+
+   $scope.isAuth();
+
+
 })
 
