@@ -14,6 +14,7 @@ angular.module('shortly.shorten', [])
     })
 
 
+
   }
   $scope.isAuth = function() {
      if(!Auth.isAuth()) {

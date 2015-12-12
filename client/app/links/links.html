@@ -1,8 +1,8 @@
 
   <!-- Your html here -->
-
-
   <div id='container'></div>
+
+  <input class="searchbar" type="text" ng-model="search" placeholder="search for link">
 
  <div class='navigation'>
   <ul>
@@ -13,9 +13,18 @@
     <li ng-repeat = 'link in links'></li> -->
   </ul>
   </div>
-
-<div ng-repeat = 'link in data.links'>
-    <p>{{link.title}}</p>
+<div class="links">
+  <div class="link" ng-repeat = "link in data.links | filter:search | orderBy:'-visits'">
+      <img src="assets/redirect_icon.png">
+       <div class="info">
+         <div class="visits">
+           <span class="count">{{link.visits}}</span>ViSiTs
+         </div>
+         <div class="title">{{link.title}}</div>
+         <div class="original">{{link.url}}</div>
+         <a href="http://localhost:3000/api/links/{{link.code}}">{{link.base_url}}/{{link.code}}</a>
+       </div>
+  </div>
 </div>
  <!--  <img src='/redirect_icon.png'/>
   <div class='info'>
